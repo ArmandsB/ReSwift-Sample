@@ -13,4 +13,5 @@ import ReSwift
 struct AppState: StateType {
   let videoState: VideoState
   let menuState: MenuState
+  let chatState: ChatState
 }

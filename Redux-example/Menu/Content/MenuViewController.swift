@@ -11,13 +11,13 @@ import ReSwift
 
 class MenuViewController: UIViewController {
 
-
   private let closeButton = UIButton(type: .custom)
+  private let chatButton = UIButton(type: .custom)
 
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.addCloseButton()
+    self.addButtons()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -39,16 +39,25 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController {
 
-  private func addCloseButton() {
+  private func addButtons() {
     closeButton.setTitle("Close", for: .normal)
     closeButton.backgroundColor = UIColor.red.withAlphaComponent(0.5)
     closeButton.setTitleColor(.white, for: .normal)
     closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
 
-    let size = CGSize(width: 50, height: 50)
+    chatButton.setTitle("Chat", for: .normal)
+    chatButton.backgroundColor = UIColor.red.withAlphaComponent(0.5)
+    chatButton.setTitleColor(.white, for: .normal)
+    chatButton.addTarget(self, action: #selector(chatButtontapped), for: .touchUpInside)
+
+    let stackView = UIStackView(arrangedSubviews: [closeButton, chatButton])
+    stackView.axis = .vertical
+    stackView.spacing = 12
+
+    let size = CGSize(width: 50, height: 112)
     let frame = CGRect(origin: CGPoint(x: 50, y: self.view.frame.size.height - size.height - 100), size: size)
-    closeButton.frame = frame
-    self.view.addSubview(closeButton)
+    stackView.frame = frame
+    self.view.addSubview(stackView)
   }
 
   @objc
@@ -59,6 +68,13 @@ extension MenuViewController {
       store.dispatch(MenuAction.open)
     }
   }
+
+    @objc
+    private func chatButtontapped() {
+        store.dispatch(MenuAction.closed)
+        let chatViewController = ChatViewController()
+        self.navigationController?.pushViewController(chatViewController, animated: true)
+    }
 }
 
 

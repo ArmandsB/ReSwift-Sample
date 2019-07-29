@@ -14,8 +14,6 @@ class GameViewController: UIViewController {
   private let videoViewController = VideoViewController()
   private let menuButton = UIButton(type: .custom)
 
-
-
   init() {
     super.init(nibName: nil, bundle: nil)
   }
@@ -27,6 +25,7 @@ class GameViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.backgroundColor = .white
+    self.title = "Game"
 
     self.addMenuButton()
     self.add(child: menuViewController)

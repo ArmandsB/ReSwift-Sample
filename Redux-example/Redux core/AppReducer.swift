@@ -12,6 +12,7 @@ import ReSwift
 func appReducer(action: Action, state: AppState?) -> AppState {
   return AppState(
     videoState: videoReducer(action: action, state: state?.videoState),
-    menuState: menuReducer(action: action, state: state?.menuState)
+    menuState: menuReducer(action: action, state: state?.menuState),
+    chatState: chatReducer(action: action, state: state?.chatState)
   )
 }

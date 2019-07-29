@@ -1,16 +1,25 @@
 PODS:
+  - Alamofire (4.8.2)
   - ReSwift (4.1.1)
+  - ReSwiftThunk (1.1.0):
+    - ReSwift (~> 4.0)
 
 DEPENDENCIES:
+  - Alamofire
   - ReSwift
+  - ReSwiftThunk
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - ReSwift
+    - ReSwiftThunk
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   ReSwift: d925be0033558f55bd73d92869961230dfe19d52
+  ReSwiftThunk: 727c1549dbd2949472e1c72bec44b1008d7c4f92
 
-PODFILE CHECKSUM: 72d5aee099d50dc8dd81ea53919c6179667e863c
+PODFILE CHECKSUM: 39699a84874c4f24e50abe57a55d46dbfc299ecc
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.7.5
